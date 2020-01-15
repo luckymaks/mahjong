@@ -1,0 +1,20 @@
+.container {
+    width: 40px;
+    height: 45px;
+    margin: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #212121;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.isShow {
+    border: 1px solid #15db61;
+    cursor: allowed;
+}
+
+.isDisabled {
+    cursor: not-allowed;
+}
