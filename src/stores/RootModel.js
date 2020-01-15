@@ -32,7 +32,7 @@ const RootModel = types
     allShow() {
       setTimeout(() => {
         store.cards.forEach((item) => item.toggleChange());
-      }, 3000);
+      }, 5000);
     },
     toggleVisible(val) {
       store.isVisible = val;
