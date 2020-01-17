@@ -36,7 +36,7 @@ const RootModel = types
     },
     toggleVisible(val) {
       store.isVisible = val;
-    }
+    },
   }));
 
 export const rootStore = RootModel.create({});

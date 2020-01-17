@@ -7,11 +7,12 @@ import styles from './CardComponent.module.scss';
 
 export const CardComponent = observer(({ card, comparison }) => {
   const cx = classNames.bind(styles);
+
   const className = cx({
     container: true,
     isShow: card.isOpen,
-    isDisabled: card.isOpen || rootStore.isVisible,
   });
+
   return (
     <button
       disabled={card.isOpen || rootStore.isVisible}

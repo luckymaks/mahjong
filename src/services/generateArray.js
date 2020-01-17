@@ -1,16 +1,14 @@
 import { rootStore } from 'src/stores/RootModel';
 
-export function generateCardDeck(maxLength, maxNumber) {
-  const arr = [];
-  let rundomnumber;
+export function generateCardDeck() {
+  const n = 50;
 
-  while (arr.length <= maxLength) {
-    rundomnumber = Math.floor(Math.random() * maxNumber);
-
-    if (arr.indexOf(rundomnumber) === -1) {
-      arr.push(rundomnumber);
-      rootStore.add(rundomnumber);
+  nextPrimeNumber: for (let i = 2; i <= n; i += 1) {
+    for (let j = 2; j < i; j += 1) {
+      if (i % j === 0) continue nextPrimeNumber;
     }
+
+    rootStore.add(i);
   }
 
   rootStore.shuffle(rootStore.cards);

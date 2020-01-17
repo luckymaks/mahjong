@@ -5,19 +5,20 @@ import { CardComponent } from '../CardComponent/CardComponent';
 import styles from './ShellComponent.module.scss';
 
 export function ShellComponent() {
-  generateCardDeck(14, 50);
+  generateCardDeck();
   const arrayForComparison = [];
+
   useEffect(() => {
     rootStore.allShow();
   }, []);
+
   function comparison(item) {
     item.toggleChange();
     arrayForComparison.push(item);
     if (arrayForComparison.length === 2) {
       rootStore.toggleVisible(true);
-      const item1 = arrayForComparison[0];
-      const item2 = arrayForComparison[1];
-      if (item1.title === item2.title) {
+      const [firstCard, secondCard] = arrayForComparison;
+      if (firstCard.title === secondCard.title) {
         rootStore.toggleVisible(false);
         arrayForComparison.splice(0, arrayForComparison.length);
         return;
@@ -25,8 +26,8 @@ export function ShellComponent() {
       arrayForComparison.splice(0, arrayForComparison.length);
       setTimeout(() => {
         rootStore.toggleVisible(false);
-        item1.toggleChange();
-        item2.toggleChange();
+        firstCard.toggleChange();
+        secondCard.toggleChange();
       }, 1000);
     }
   }
